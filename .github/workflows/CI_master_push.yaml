@@ -5,5 +5,16 @@ on:
     branches:
       - master
 jobs:
-  my_first_job:
-    name: My first job
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build
+        run: |
+          echo "Build"
+      - name: Test
+        run: |
+          echo "Test"
+      - name: Deploy
+        run: |
+          echo "Deploy"
