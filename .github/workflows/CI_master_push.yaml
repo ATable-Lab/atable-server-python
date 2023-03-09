@@ -1,0 +1,6 @@
+name: CI master push
+run-name: ${{ github.actor }} pushed to master branch. 🚀 # optional
+on:
+  push:
+    branches:
+      - master
