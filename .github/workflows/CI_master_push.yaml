@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - master
-runs:
-  using: 'docker'
-  image: 'Dockerfile'
 jobs:
   build:
     runs-on: ubuntu-latest
