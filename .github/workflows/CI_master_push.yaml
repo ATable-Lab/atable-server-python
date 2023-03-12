@@ -19,7 +19,10 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: immin5/${{ env.SERVICE }}:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/${{ env.SERVICE }}:latest
+          env:
+            DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+            DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Deploy
         run: |
