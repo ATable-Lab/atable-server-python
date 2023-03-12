@@ -1,6 +1,7 @@
 name: CI master push
 run-name: ${{ github.actor }} pushed to master branch. 🚀 # optional
 on:
+  workflow_dispatch:
   push:
     branches:
       - master
