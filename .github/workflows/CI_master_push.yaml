@@ -27,7 +27,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: immin5/${{ env.SERVICE }}:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.SERVICE }}:latest
 
       - name: Deploy
         run: |
