@@ -20,9 +20,9 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/${{ env.SERVICE }}:latest
-          env:
-            DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-            DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Deploy
         run: |
