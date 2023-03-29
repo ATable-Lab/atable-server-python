@@ -18,4 +18,4 @@ EXPOSE ${SERVICE_PORT}
 
 WORKDIR backend
 
-ENTRYPOINT ["python3", "server.py"]
+CMD ["python3", "server.py"]
