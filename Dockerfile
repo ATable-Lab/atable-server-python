@@ -1,4 +1,4 @@
-FROM python:3.8
+FROM python:3.8-slim
 
 ENV PYTHONUNBUFFERED 1
 ENV SERVICE_PORT 8080
@@ -10,12 +10,8 @@ RUN pip install --upgrade pip && \
     pip install --upgrade -r ${PKG_DIR}/pip_requirements.txt
 
 COPY src ${SRC_DIR}
-
-
 WORKDIR ${SRC_DIR}
 
 EXPOSE ${SERVICE_PORT}
 
-WORKDIR backend
-
-CMD ["python3", "server.py"]
+CMD ["python3", "backend/server.py"]
