@@ -1,6 +1,6 @@
 PORT = 8080
 UVICORN_OPTIONS = {}
-HOST = 'localhost'
+HOST = '0.0.0.0'
 
 
 DATABASE = {
