@@ -1,1 +1,0 @@
-from backend.controller.wine_info_controller import WineInfoController

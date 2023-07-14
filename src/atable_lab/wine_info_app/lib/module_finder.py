@@ -4,10 +4,10 @@ def _get_module(package, target):
 
 class ModuleFinder(object):
     def __init__(self, package):
-        self.package = package or 'backend'
+        self.package = package or 'atable_lab'
 
     def get_controller(self, name_or_object, **kwargs):
-        package = 'backend'
+        package = 'atable_lab'
         try:
             if isinstance(name_or_object, str):
                 controller_module = _get_module(package, 'controller')

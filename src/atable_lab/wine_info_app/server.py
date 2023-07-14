@@ -1,10 +1,8 @@
 import uvicorn
-
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from backend.lib.config import set_config
-from conf.server_conf import *
-from backend.router import wine_info, base
+from atable_lab.wine_info_app.conf.server_conf import *
+from atable_lab.wine_info_app.router import wine_info, base
 
 
 def _add_middlewares(app):
@@ -29,14 +27,3 @@ def fast_api_app():
     app = _add_middlewares(app)
     app = _add_routers(app)
     return app
-
-
-def main():
-    # uvicorn_options = CONFIG.get('UVICORN_OPTIONS', {})
-    print(UVICORN_OPTIONS)
-    set_config()
-    uvicorn.run('server:fast_api_app', host=HOST, port=PORT, **UVICORN_OPTIONS)
-
-
-if __name__ == "__main__":
-    main()

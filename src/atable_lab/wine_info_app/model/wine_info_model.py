@@ -1,7 +1,5 @@
-from backend.model import BaseAPIModel
+from atable_lab.wine_info_app.model import BaseAPIModel
 from pydantic import Field
-from typing import Union, List
-from datetime import datetime
 
 
 class WineInfo(BaseAPIModel):
