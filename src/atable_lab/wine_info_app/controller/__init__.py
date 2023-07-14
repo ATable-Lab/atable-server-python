@@ -1,0 +1,1 @@
+from atable_lab.wine_info_app.controller.wine_info_controller import WineInfoController
