@@ -1,7 +1,6 @@
-from backend.lib.logger import log_handler
 from fastapi import APIRouter, Request
-from backend.controller import WineInfoController
-from backend.model.wine_info_model import WineInfo
+from atable_lab.wine_info_app.controller import WineInfoController
+from atable_lab.wine_info_app.model.wine_info_model import WineInfo
 
 router = APIRouter()
 

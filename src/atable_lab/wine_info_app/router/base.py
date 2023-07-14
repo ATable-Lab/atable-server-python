@@ -1,6 +1,5 @@
 import logging
-from fastapi import APIRouter, Request
-from backend.lib.logger import log_handler
+from fastapi import APIRouter
 
 router = APIRouter()
 

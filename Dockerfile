@@ -14,4 +14,4 @@ WORKDIR ${SRC_DIR}
 
 EXPOSE ${SERVICE_PORT}
 
-CMD ["python3", "backend/server.py"]
+CMD ["python3", "atable.py", "-app", "wine_info_app"]
