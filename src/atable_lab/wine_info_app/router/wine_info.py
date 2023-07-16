@@ -1,5 +1,6 @@
 from fastapi import APIRouter, Request
-from atable_lab.wine_info_app.controller import WineInfoController
+from fastapi.encoders import jsonable_encoder
+from atable_lab.wine_info_app.controller.wine_info_controller import WineInfoController
 from atable_lab.wine_info_app.model.wine_info_model import WineInfo
 
 router = APIRouter()
@@ -12,6 +13,9 @@ async def create(request: Request):
 
     price: wine price
     '''
-    request_body = await request.json()
-    controller = WineInfoController()
-    return controller.create(request_body)
+
+    params = await request.json()
+
+    with WineInfoController() as wine_info_controller:
+        return wine_info_controller.create(params)
+
