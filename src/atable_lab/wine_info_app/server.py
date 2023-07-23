@@ -3,6 +3,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from atable_lab.wine_info_app.conf.server_conf import *
 from atable_lab.wine_info_app.router import wine_info, base
+from atable_lab.wine_info_app.model import BaseAPIModel
 
 
 def _add_middlewares(app):
@@ -19,6 +20,11 @@ def _add_middlewares(app):
 def _add_routers(app):
     app.include_router(router=wine_info, tags=['wine-info > wine-info'], prefix='/wine-info')
     app.include_router(base)
+    return app
+
+
+def _init_fast_api(app):
+    print('init fast api')
     return app
 
 
