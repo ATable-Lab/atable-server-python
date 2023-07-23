@@ -16,8 +16,15 @@ env:
   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
 jobs:
-  build:
+  owner_check:
+    if: github.repository_owner == 'Atable-Lab'
     runs-on: ubuntu-latest
+    steps:
+      - run: echo ${{ github.repository_owner }}
+  build:
+    if: github.repository_owner == 'Atable-Lab'
+    runs-on: ubuntu-latest
+    needs: owner_check
     steps:
       - uses: actions/checkout@v3
       - name: Get service name
@@ -37,6 +44,10 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.SERVICE }}:latest
+          build-args: |
+            ATABLE_LAB_MONGO_DB_HOST=${{ secrets.ATABLE_LAB_MONGO_DB_HOST }}
+            ATABLE_LAB_MONGO_DB_ID=${{ secrets.ATABLE_LAB_MONGO_DB_ID }}
+            ATABLE_LAB_MONGO_DB_PASSWORD=${{ secrets.ATABLE_LAB_MONGO_DB_PASSWORD }}
 
       - name: Upload Docker Image with Tag
         uses: docker/build-push-action@v2
