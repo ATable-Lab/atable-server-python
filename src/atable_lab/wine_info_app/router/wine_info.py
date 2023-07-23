@@ -1,12 +1,14 @@
 from fastapi import APIRouter, Request
 from fastapi.encoders import jsonable_encoder
+from starlette.responses import JSONResponse
+
 from atable_lab.wine_info_app.controller.wine_info_controller import WineInfoController
 from atable_lab.wine_info_app.model.wine_info_model import WineInfo
 
 router = APIRouter()
 
 
-@router.post("/create", openapi_extra=WineInfo.meta())
+@router.post("/create", openapi_extra=WineInfo.Create.meta())
 async def create(request: Request):
     '''
     **name**: wine name
