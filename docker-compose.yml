@@ -1,0 +1,25 @@
+version: '3'
+services:
+  watchtower:
+    image: containrrr/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /root/.docker/config.json:/config.json
+    command: --interval 60
+
+  atable-server:
+    image: immin5/atable-server-python:latest
+    container_name: atable-server
+    depends_on:
+      - watchtower
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+
+    depends_on:
+      - atable-server
