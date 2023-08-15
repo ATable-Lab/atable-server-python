@@ -13,3 +13,4 @@ ENV/
 .idea/
 
 *.sh
+!certbot/init-letsencrypt.sh
