@@ -18,8 +18,20 @@ services:
     container_name: nginx
     ports:
       - "80:80"
+      - "443:443"
     volumes:
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
 
     depends_on:
       - atable-server
+
+
+  certbot:
+    image: certbot/certbot
+    restart: unless-stopped
+    volumes:
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+    entrypoint: "certbot certonly --webroot -w /var/www/certbot -d atable-lab.co.kr -d www.atable-lab.co.kr"
+    depends_on:
+      - nginx
