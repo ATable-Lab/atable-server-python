@@ -5,7 +5,7 @@ if ! [ -x "$(command -v docker-compose)" ]; then
   exit 1
 fi
 
-domains=(atable-lab.co.kr www.atable-lab.co.kr) # modify to your own domain
+domains=('serveratable-lab.co.kr' 'admin.atable-lab.co.kr') # modify to your own domain
 rsa_key_size=4096
 data_path="../data/certbot"
 email="iam.minhokim@gmail.com" # Adding a valid address is strongly recommended
