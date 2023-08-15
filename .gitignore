@@ -11,6 +11,9 @@ ENV/
 
 # Pycharm
 .idea/
-
 *.sh
+
+# certbod
 !certbot/init-letsencrypt.sh
+data
+certbot/conf
