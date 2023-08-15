@@ -8,7 +8,7 @@ from bson import ObjectId
 
 class WineInfo(BaseAPIModel):
     class WineInfoResult(BaseAPIModel):
-        _id: str = Field(...)
+        id: str = Field(...)
         name: str = None
         price: float = None
         currency: str = None
